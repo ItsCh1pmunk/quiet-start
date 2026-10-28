@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <title>收藏夹</title>
+  <link rel="icon" href="assets/icon-32.png">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="src/app.js"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="wordmark"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>起始页</div>
+      <label class="search-box">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 4.3 4.3"/></svg>
+        <input id="search" type="search" placeholder="搜索收藏夹" aria-label="搜索收藏夹" autocomplete="off" spellcheck="false">
+        <kbd aria-hidden="true">⌘ K</kbd>
+      </label>
+    </header>
+    <main id="main" aria-busy="true">
+      <div class="page-heading">
+        <div><h1>收藏夹</h1><p id="summary">正在读取 Chrome 书签…</p></div>
+        <button id="choose-folder" class="folder-chip" type="button" title="选择书签文件夹">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg>
+          <span id="source-label">书签文件夹</span><span aria-hidden="true">⌄</span>
+        </button>
+      </div>
+      <nav id="breadcrumbs" class="breadcrumbs" aria-label="文件夹路径" hidden></nav>
+      <div id="notice" class="notice" role="status" hidden></div>
+      <div id="content"></div>
+      <div id="empty" class="empty-state" hidden>
+        <div class="empty-symbol" aria-hidden="true">☆</div>
+        <h2 id="empty-title">这里还没有书签</h2>
+        <p id="empty-description">按 ⌘ D 收藏一个网站，或选择其他书签文件夹。</p>
+        <button id="empty-folder" class="text-button" type="button">选择文件夹</button>
+      </div>
+      <noscript>请在 Chrome 中启用 JavaScript 后重新打开新标签页。</noscript>
+    </main>
+  </div>
+  <footer class="page-footer"><span><span class="status-dot" aria-hidden="true"></span>本地运行</span><span class="footer-hint">你的书签，你的空间。</span></footer>
+  <button id="settings-button" class="settings-button" type="button" aria-label="自定起始页" aria-haspopup="dialog" title="自定起始页">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="2.5"/><circle cx="15" cy="17" r="2.5"/></svg>
+  </button>
+  <dialog id="settings-dialog" aria-labelledby="settings-title">
+    <div class="dialog-heading"><div><span class="eyebrow">QUIET START</span><h2 id="settings-title">自定起始页</h2></div><button id="close-settings" class="icon-button" aria-label="关闭设置" type="button">×</button></div>
+    <div class="settings-section">
+      <label class="field-label" for="folder-select">书签文件夹</label>
+      <select id="folder-select" aria-describedby="folder-help"></select>
+      <p class="field-help" id="folder-help">自动读取 Chrome 书签，修改后即时更新。</p>
+    </div>
+    <div class="settings-section layout-settings">
+      <div class="range-heading"><label for="icon-size">图标大小</label><output id="icon-size-value" for="icon-size">64 px</output></div>
+      <input id="icon-size" type="range" min="40" max="88" step="4" value="64">
+      <div class="range-captions" aria-hidden="true"><span>小</span><span>大</span></div>
+      <div class="range-heading"><label for="columns">每行数量</label><output id="columns-value" for="columns">8 个</output></div>
+      <input id="columns" type="range" min="4" max="12" step="1" value="8" aria-describedby="columns-help">
+      <p class="field-help" id="columns-help">窄窗口会自动减少列数，保持图标清晰。</p>
+    </div>
+    <div class="settings-section toggles">
+      <label class="toggle-row"><span><strong>按文件夹分组</strong><small>展示所有层级的书签</small></span><input id="grouped" type="checkbox" role="switch" checked></label>
+      <label class="toggle-row"><span><strong>仅使用字母图标</strong><small>不读取 Chrome 网站图标</small></span><input id="letters-only" type="checkbox" role="switch"></label>
+    </div>
+    <div class="settings-note"><span aria-hidden="true">◐</span><p>外观自动跟随系统。设置仅保存在本机，不上传书签。</p></div>
+    <div class="dialog-footer"><span id="save-status" role="status">设置自动保存</span><button id="reset-settings" class="text-button" type="button">恢复默认</button></div>
+  </dialog>
+</body>
+</html>
