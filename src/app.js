@@ -100,7 +100,7 @@ function createTile(item) {
     if (src) {
       const img = new Image();
       img.alt = ''; img.decoding = 'async'; img.loading = 'lazy';
-      img.addEventListener('load', () => { img.classList.add('loaded'); letter.hidden = true; });
+      img.addEventListener('load', () => { img.classList.add('loaded'); icon.classList.add('has-favicon'); letter.hidden = true; });
       img.addEventListener('error', () => { img.remove(); letter.hidden = false; });
       img.src = src; icon.append(img);
     }

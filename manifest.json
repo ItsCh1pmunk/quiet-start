@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Quiet Start · 收藏夹起始页",
-  "version": "1.1.0",
-  "description": "清透绿色玻璃风格的收藏夹新标签页。本地读取 Chrome 书签，支持文件夹切换与系统明暗主题。",
+  "version": "1.2.0",
+  "description": "简洁通透的 Air 风格收藏夹新标签页。读取 Chrome 书签，本地运行，跟随系统主题。",
   "minimum_chrome_version": "104",
   "permissions": [
     "bookmarks",

@@ -11,24 +11,28 @@
   <script type="module" src="src/app.js"></script>
 </head>
 <body>
+  <div class="ambient-shape" aria-hidden="true"></div>
   <div class="page-shell">
     <header class="topbar">
       <div class="wordmark"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Quiet Start</span></div>
-      <label class="search-box">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 4.3 4.3"/></svg>
-        <input id="search" type="search" placeholder="搜索收藏夹" aria-label="搜索收藏夹" autocomplete="off" spellcheck="false">
-        <kbd aria-hidden="true">⌘ K</kbd>
-      </label>
-    </header>
-    <main id="main" aria-busy="true">
-      <div class="page-heading">
-        <div><h1>收藏夹</h1><p id="summary">正在读取 Chrome 书签…</p></div>
+
         <label class="folder-chip">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg>
           <select id="choose-folder" class="quick-folder-select" aria-label="选择收藏夹" disabled><option>正在读取…</option></select>
           <span class="folder-chevron" aria-hidden="true">⌄</span>
         </label>
+    </header>
+    <main id="main" aria-busy="true">
+      <div class="page-heading">
+        <div class="hero-copy"><span class="hero-kicker">给日常，留一点从容</span><h1>常去的地方<span class="title-dot">.</span></h1><p id="summary">正在读取 Chrome 书签…</p></div>
+
       </div>
+      <label class="search-box">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 4.3 4.3"/></svg>
+        <input id="search" type="search" placeholder="搜索喜欢的网站" aria-label="搜索收藏夹" autocomplete="off" spellcheck="false">
+        <kbd aria-hidden="true">⌘ K</kbd>
+      </label>
+      <div class="collection-surface">
       <nav id="breadcrumbs" class="breadcrumbs" aria-label="文件夹路径" hidden></nav>
       <div id="notice" class="notice" role="status" hidden></div>
       <div id="content"></div>
@@ -37,6 +41,7 @@
         <h2 id="empty-title">这里还没有书签</h2>
         <p id="empty-description">按 ⌘ D 收藏一个网站，或选择其他书签文件夹。</p>
         <button id="empty-folder" class="text-button" type="button">选择文件夹</button>
+      </div>
       </div>
       <noscript>请在 Chrome 中启用 JavaScript 后重新打开新标签页。</noscript>
     </main>

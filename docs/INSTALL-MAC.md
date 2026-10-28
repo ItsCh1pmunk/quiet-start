@@ -4,7 +4,7 @@
 
 ## 一、保留扩展文件夹
 
-从 [GitHub Releases](https://github.com/ItsCh1pmunk/quiet-start/releases/latest) 下载 `quiet-start-1.1.0.zip`，解压得到 `quiet-start` 文件夹。把它移动到长期保留的位置，例如 Finder 中「文稿 → Chrome 扩展」。进入该文件夹应直接看到 `manifest.json`、`newtab.html`、`styles.css`、`src` 和 `assets`。如果使用 GitHub 的 Code → Download ZIP，解压目录通常叫 `quiet-start-main`，同样选择直接包含 `manifest.json` 的这一层即可。
+从 [GitHub Releases](https://github.com/ItsCh1pmunk/quiet-start/releases/latest) 下载 `quiet-start-1.2.0.zip`，解压得到 `quiet-start` 文件夹。把它移动到长期保留的位置，例如 Finder 中「文稿 → Chrome 扩展」。进入该文件夹应直接看到 `manifest.json`、`newtab.html`、`styles.css`、`src` 和 `assets`。如果使用 GitHub 的 Code → Download ZIP，解压目录通常叫 `quiet-start-main`，同样选择直接包含 `manifest.json` 的这一层即可。
 
 Chrome 会直接从此位置读取扩展，安装后请勿删除或移动文件夹。整个工程无需联网下载资源。
 
