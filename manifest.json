@@ -1,12 +1,23 @@
 {
   "manifest_version": 3,
   "name": "Quiet Start · 收藏夹起始页",
-  "version": "1.0.0",
-  "description": "简洁的 Safari 风格收藏夹新标签页。读取 Chrome 书签，本地运行，跟随系统主题。",
+  "version": "1.1.0",
+  "description": "清透绿色玻璃风格的收藏夹新标签页。本地读取 Chrome 书签，支持文件夹切换与系统明暗主题。",
   "minimum_chrome_version": "104",
-  "permissions": ["bookmarks", "storage", "favicon"],
-  "chrome_url_overrides": { "newtab": "newtab.html" },
-  "icons": { "16": "assets/icon-16.png", "32": "assets/icon-32.png", "48": "assets/icon-48.png", "128": "assets/icon-128.png" },
+  "permissions": [
+    "bookmarks",
+    "storage",
+    "favicon"
+  ],
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "icons": {
+    "16": "assets/icon-16.png",
+    "32": "assets/icon-32.png",
+    "48": "assets/icon-48.png",
+    "128": "assets/icon-128.png"
+  },
   "content_security_policy": {
     "extension_pages": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none';"
   }

@@ -137,19 +137,22 @@ function render() {
   const source = chooseFolder(state.tree, settings.folderId);
   const current = folders.find(f => f.id === state.navigation) || source;
   if (!current) return;
-  const select = $('folder-select');
-  // Rebuild only if the bookmark tree or chosen source has changed, preserving keyboard interaction.
+  // Populate both pickers only when the folder tree changes, so keyboard
+  // selection remains stable while bookmarks and preferences update.
   const signature = JSON.stringify(folders.map(f => [f.id, f.path]));
-  if (select.dataset.signature !== signature) {
-    select.replaceChildren(...folders.map(folder => {
-      const option = element('option', '', folder.path);
-      option.value = folder.id; return option;
-    }));
-    select.dataset.signature = signature;
+  for (const id of ['folder-select', 'choose-folder']) {
+    const select = $(id);
+    if (select.dataset.signature !== signature) {
+      select.replaceChildren(...folders.map(folder => {
+        const option = element('option', '', folder.path);
+        option.value = folder.id; return option;
+      }));
+      select.dataset.signature = signature;
+    }
+    select.value = source.id;
+    select.disabled = false;
   }
-  select.value = source.id;
-  $('source-label').textContent = current.title;
-  $('choose-folder').title = `当前文件夹：${current.path}。点击选择来源。`;
+  $('choose-folder').title = `当前收藏夹：${source.path}。直接选择来源文件夹。`;
   $('icon-size').value = settings.iconSize;
   $('columns').value = settings.columns;
   $('icon-size-value').value = `${settings.iconSize} px`;
@@ -217,18 +220,19 @@ function openSettings(focusFolder = false) {
 }
 
 $('settings-button').addEventListener('click', () => openSettings());
-$('choose-folder').addEventListener('click', () => openSettings(true));
 $('close-settings').addEventListener('click', () => $('settings-dialog').close());
 $('settings-dialog').addEventListener('click', event => {
   if (event.target !== $('settings-dialog')) return;
   const box = $('settings-dialog').getBoundingClientRect();
   if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) $('settings-dialog').close();
 });
-$('folder-select').addEventListener('change', event => {
-  state.navigation = null;
-  state.query = ''; $('search').value = '';
-  updateSettings({ folderId: event.target.value });
-});
+for (const id of ['folder-select', 'choose-folder']) {
+  $(id).addEventListener('change', event => {
+    state.navigation = null;
+    state.query = ''; $('search').value = '';
+    updateSettings({ folderId: event.target.value });
+  });
+}
 $('icon-size').addEventListener('input', event => updateSettings({ iconSize: Number(event.target.value) }));
 $('columns').addEventListener('input', event => updateSettings({ columns: Number(event.target.value) }));
 $('grouped').addEventListener('change', event => updateSettings({ grouped: event.target.checked }));

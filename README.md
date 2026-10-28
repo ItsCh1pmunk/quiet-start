@@ -1,14 +1,21 @@
 # Quiet Start · 收藏夹起始页
 
-一个完全本地运行的 Chrome Manifest V3 扩展，将新标签页替换成接近 macOS Safari 的收藏夹网格。使用原生 HTML、CSS、JavaScript，安装不需要 Node、构建或联网。
+一个完全本地运行的 Chrome Manifest V3 扩展，将新标签页替换成清透绿色、iOS 玻璃图标风格的收藏夹网格。使用原生 HTML、CSS、JavaScript，安装不需要 Node、构建或联网。
 
 ![浅色起始页预览](docs/screenshots/light.png)
 
 [深色预览](docs/screenshots/dark.png) · [设置面板](docs/screenshots/settings.png) · [测试记录](docs/VERIFICATION.md)
 
+## v1.1.0 更新
+
+- 中大绿基调的清透背景，适配浅色与深色主题。
+- iOS 风格圆角图标，加入弧面高光、半透明亮边和柔和彩色投影。
+- 右上角直接下拉切换收藏夹并保存；右下角继续提供完整设置。
+- 不增加权限，不引入外部图片、脚本或运行时依赖。
+
 ## Mac Chrome 快速安装
 
-1. 从 [Releases](https://github.com/ItsCh1pmunk/quiet-start/releases/latest) 下载 `quiet-start-1.0.0.zip`，解压到长期保留的位置，例如 `文稿/Chrome 扩展/quiet-start`。也可以使用 GitHub 的 Code → Download ZIP，或直接克隆本仓库。
+1. 从 [Releases](https://github.com/ItsCh1pmunk/quiet-start/releases/latest) 下载 `quiet-start-1.1.0.zip`，解压到长期保留的位置，例如 `文稿/Chrome 扩展/quiet-start`。也可以使用 GitHub 的 Code → Download ZIP，或直接克隆本仓库。
 2. 在 Chrome 地址栏输入 `chrome://extensions` 并回车。
 3. 打开页面右上角的「开发者模式」。
 4. 点击「加载已解压的扩展程序」，选择 **直接包含 `manifest.json` 的文件夹**。Release 包中为 `quiet-start`；GitHub 源码 ZIP 通常为 `quiet-start-main`。不要选 ZIP 文件。
@@ -18,7 +25,7 @@
 
 ## 功能与用法
 
-- 默认读取 Chrome 书签栏。在右上角文件夹按钮，或右下角「自定起始页」中选择任何书签文件夹，也可选「全部书签」。
+- 默认读取 Chrome 书签栏。在右上角直接下拉选择任何书签文件夹，也可选「全部书签」；选择后即时切换并自动保存。右下角「自定起始页」仍提供完整设置。
 - 自动响应新增、删除、重命名、移动、重新排序与导入书签。每次打开新标签页都会重新读取最新书签；没有后台进程。
 - 默认开启「按文件夹分组」，递归展示所选文件夹的全部书签，并用相对路径区分深层和同名文件夹。空文件夹不生成空分组。
 - 关闭分组后，显示直属网站与文件夹磁贴。点击文件夹进入，使用上方路径返回；临时导航不改变默认来源。要永久改来源，请在设置中选择。

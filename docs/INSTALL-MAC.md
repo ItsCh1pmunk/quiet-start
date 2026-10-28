@@ -4,7 +4,7 @@
 
 ## 一、保留扩展文件夹
 
-从 [GitHub Releases](https://github.com/ItsCh1pmunk/quiet-start/releases/latest) 下载 `quiet-start-1.0.0.zip`，解压得到 `quiet-start` 文件夹。把它移动到长期保留的位置，例如 Finder 中「文稿 → Chrome 扩展」。进入该文件夹应直接看到 `manifest.json`、`newtab.html`、`styles.css`、`src` 和 `assets`。如果使用 GitHub 的 Code → Download ZIP，解压目录通常叫 `quiet-start-main`，同样选择直接包含 `manifest.json` 的这一层即可。
+从 [GitHub Releases](https://github.com/ItsCh1pmunk/quiet-start/releases/latest) 下载 `quiet-start-1.1.0.zip`，解压得到 `quiet-start` 文件夹。把它移动到长期保留的位置，例如 Finder 中「文稿 → Chrome 扩展」。进入该文件夹应直接看到 `manifest.json`、`newtab.html`、`styles.css`、`src` 和 `assets`。如果使用 GitHub 的 Code → Download ZIP，解压目录通常叫 `quiet-start-main`，同样选择直接包含 `manifest.json` 的这一层即可。
 
 Chrome 会直接从此位置读取扩展，安装后请勿删除或移动文件夹。整个工程无需联网下载资源。
 
@@ -22,8 +22,8 @@ Chrome 会直接从此位置读取扩展，安装后请勿删除或移动文件�
 
 ## 三、选择收藏夹
 
-1. 点击新标签页右上角的文件夹按钮，或右下角的自定按钮。
-2. 在「书签文件夹」下拉框中选择来源。
+1. 在新标签页右上角的收藏夹下拉框直接选择来源，无需打开设置面板。
+2. 如需调整外观，点击右下角的自定按钮；面板内也可选择书签文件夹。
 3. 默认按文件夹分组，所有深层书签都包含在内。想像 Finder 一样逐层进入文件夹时，关闭「按文件夹分组」。
 4. 拖动「图标大小」和「每行数量」。修改即时生效，设置自动保存。
 5. 点击面板右上角 `×` 或按 `Esc` 关闭。
