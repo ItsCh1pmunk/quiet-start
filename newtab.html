@@ -11,33 +11,109 @@
   <script type="module" src="src/app.js"></script>
 </head>
 <body>
+  <div class="celestial-stage" aria-hidden="true">
+    <svg class="celestial-halo" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMin slice">
+      <defs>
+        <radialGradient id="halo-aura" cx="50%" cy="17%" r="54%">
+          <stop offset="0%" class="aura-core"/>
+          <stop offset="38%" class="aura-mid"/>
+          <stop offset="100%" class="aura-edge"/>
+        </radialGradient>
+        <linearGradient id="ray-fade" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" class="ray-start"/>
+          <stop offset="100%" class="ray-end"/>
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="700" fill="url(#halo-aura)"/>
+      <g class="halo-rays" transform="translate(600 120)">
+        <line x1="0" y1="0" x2="0" y2="-440"/>
+        <line x1="0" y1="0" x2="114" y2="-425"/>
+        <line x1="0" y1="0" x2="220" y2="-381"/>
+        <line x1="0" y1="0" x2="311" y2="-311"/>
+        <line x1="0" y1="0" x2="381" y2="-220"/>
+        <line x1="0" y1="0" x2="425" y2="-114"/>
+        <line x1="0" y1="0" x2="440" y2="0"/>
+        <line x1="0" y1="0" x2="425" y2="114"/>
+        <line x1="0" y1="0" x2="381" y2="220"/>
+        <line x1="0" y1="0" x2="311" y2="311"/>
+        <line x1="0" y1="0" x2="220" y2="381"/>
+        <line x1="0" y1="0" x2="114" y2="425"/>
+        <line x1="0" y1="0" x2="0" y2="440"/>
+        <line x1="0" y1="0" x2="-114" y2="425"/>
+        <line x1="0" y1="0" x2="-220" y2="381"/>
+        <line x1="0" y1="0" x2="-311" y2="311"/>
+        <line x1="0" y1="0" x2="-381" y2="220"/>
+        <line x1="0" y1="0" x2="-425" y2="114"/>
+        <line x1="0" y1="0" x2="-440" y2="0"/>
+        <line x1="0" y1="0" x2="-425" y2="-114"/>
+        <line x1="0" y1="0" x2="-381" y2="-220"/>
+        <line x1="0" y1="0" x2="-311" y2="-311"/>
+        <line x1="0" y1="0" x2="-220" y2="-381"/>
+        <line x1="0" y1="0" x2="-114" y2="-425"/>
+      </g>
+      <g class="halo-rings" transform="translate(600 120)">
+        <circle r="160"/>
+        <circle r="240"/>
+        <circle class="halo-dashed" r="280"/>
+        <circle r="320"/>
+        <circle r="410"/>
+        <path class="rose-petals" d="M 0 -240 Q 90 -90 240 0 Q 90 90 0 240 Q -90 90 -240 0 Q -90 -90 0 -240 Z"/>
+        <path class="rose-petals" transform="rotate(45)" d="M 0 -240 Q 90 -90 240 0 Q 90 90 0 240 Q -90 90 -240 0 Q -90 -90 0 -240 Z"/>
+        <path class="rose-petals-outer" d="M 0 -320 L 42 -42 L 320 0 L 42 42 L 0 320 L -42 42 L -320 0 L -42 -42 Z"/>
+      </g>
+      <g class="halo-stars">
+        <path d="M600 18 L603 28 L613 31 L603 34 L600 44 L597 34 L587 31 L597 28 Z"/>
+        <path d="M600 271 L602.5 278.5 L610 281 L602.5 283.5 L600 291 L597.5 283.5 L590 281 L597.5 278.5 Z"/>
+        <path d="M280 112 L282.5 117.5 L288 120 L282.5 122.5 L280 128 L277.5 122.5 L272 120 L277.5 117.5 Z"/>
+        <path d="M920 112 L922.5 117.5 L928 120 L922.5 122.5 L920 128 L917.5 122.5 L912 120 L917.5 117.5 Z"/>
+      </g>
+    </svg>
+  </div>
+
   <div class="page-shell">
-    <header class="topbar">
-      <div class="wordmark">
-        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-        <span>Quiet Start</span>
+    <header class="sanctuary-header">
+      <div class="masthead">
+        <svg class="sanctuary-crest" viewBox="0 0 36 36" aria-hidden="true">
+          <circle class="crest-ring" cx="18" cy="18" r="15.5"/>
+          <circle class="crest-ring-inner" cx="18" cy="18" r="11"/>
+          <path class="crest-rays" d="M9 9 27 27M27 9 9 27"/>
+          <path class="crest-star" d="M18 3.5 20.6 15.4 32.5 18 20.6 20.6 18 32.5 15.4 20.6 3.5 18 15.4 15.4Z"/>
+        </svg>
+        <div class="wordmark-stack">
+          <span class="wordmark-title">QUIET START</span>
+          <span class="wordmark-sub"><i class="star-dot" aria-hidden="true"></i>静 启 书 阁<i class="star-dot" aria-hidden="true"></i></span>
+        </div>
       </div>
-      <label class="search-box">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 4.3 4.3"/></svg>
-        <input id="search" type="search" placeholder="搜索收藏夹" aria-label="搜索收藏夹" autocomplete="off" spellcheck="false">
-        <kbd aria-hidden="true">⌘K</kbd>
-      </label>
-      <label class="folder-chip">
-        <svg class="folder-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4.6l2 2H19a2 2 0 0 1 2 2v8.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg>
-        <select id="choose-folder" class="quick-folder-select" aria-label="选择收藏夹" disabled><option>正在读取…</option></select>
-        <svg class="folder-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 6.5 8 10l3.5-3.5"/></svg>
-      </label>
+
+      <div class="command-bar">
+        <label class="search-box">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 4.3 4.3"/></svg>
+          <input id="search" type="search" placeholder="搜索书签与站点…" aria-label="搜索收藏夹" autocomplete="off" spellcheck="false">
+          <kbd aria-hidden="true">⌘K</kbd>
+        </label>
+        <label class="folder-chip">
+          <svg class="folder-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4.6l2 2H19a2 2 0 0 1 2 2v8.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg>
+          <select id="choose-folder" class="quick-folder-select" aria-label="选择收藏夹" disabled><option>正在读取…</option></select>
+          <svg class="folder-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 6.5 8 10l3.5-3.5"/></svg>
+        </label>
+      </div>
     </header>
+
     <main id="main" aria-busy="true">
       <h1 class="visually-hidden">收藏夹</h1>
       <p id="summary" class="visually-hidden" role="status">正在读取 Chrome 书签…</p>
       <div class="collection-surface">
+        <svg class="corner-star tl" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1 9.5 6.5 15 8 9.5 9.5 8 15 6.5 9.5 1 8 6.5 6.5Z"/></svg>
+        <svg class="corner-star tr" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1 9.5 6.5 15 8 9.5 9.5 8 15 6.5 9.5 1 8 6.5 6.5Z"/></svg>
+        <svg class="corner-star bl" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1 9.5 6.5 15 8 9.5 9.5 8 15 6.5 9.5 1 8 6.5 6.5Z"/></svg>
+        <svg class="corner-star br" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1 9.5 6.5 15 8 9.5 9.5 8 15 6.5 9.5 1 8 6.5 6.5Z"/></svg>
+
         <nav id="breadcrumbs" class="breadcrumbs" aria-label="文件夹路径" hidden></nav>
         <div id="notice" class="notice" role="status" hidden></div>
         <div id="content"></div>
         <div id="empty" class="empty-state" hidden>
           <div class="empty-symbol" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="m12 3.5 2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2.5 14.3 9.7 21.5 12 14.3 14.3 12 21.5 9.7 14.3 2.5 12 9.7 9.7Z"/></svg>
           </div>
           <h2 id="empty-title">这里还没有书签</h2>
           <p id="empty-description">按 ⌘ D 收藏一个网站，或选择其他书签文件夹。</p>
@@ -47,14 +123,17 @@
       <noscript>请在 Chrome 中启用 JavaScript 后重新打开新标签页。</noscript>
     </main>
   </div>
+
   <footer class="page-footer"><span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 4 4v5c0 4 6 7 6 7s6-3 6-7V4Z"/><path d="m7 9 2 2 4-4"/></svg>本地运行</span></footer>
+
   <button id="settings-button" class="settings-button" type="button" aria-label="自定起始页" aria-haspopup="dialog" title="自定起始页">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="2.5"/><circle cx="15" cy="17" r="2.5"/></svg><span>自定</span>
   </button>
+
   <dialog id="settings-dialog" aria-labelledby="settings-title">
     <div class="dialog-heading">
       <div>
-        <span class="eyebrow">QUIET START</span>
+        <span class="eyebrow">AUREOLE · QUIET START</span>
         <h2 id="settings-title">自定起始页</h2>
       </div>
       <button id="close-settings" class="icon-button" aria-label="关闭设置" type="button">

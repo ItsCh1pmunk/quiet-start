@@ -1,10 +1,16 @@
 # Quiet Start · 收藏夹起始页
 
-一个完全本地运行的 Chrome Manifest V3 扩展，将新标签页替换成 Quiet Studio 陶瓷质感与柔和光影风格的收藏夹网格。使用原生 HTML、CSS、JavaScript，安装不需要 Node、构建或联网。
+一个完全本地运行的 Chrome Manifest V3 扩展，将新标签页重塑为 **「AUREOLE · 圣光书阁」** 风格——浅色日光雪花石膏配香槟金圣光，深色午夜蓝宝石配星辉金饰。使用原生 HTML、CSS、JavaScript 与内置系统衬线字体，安装不需要 Node、构建或联网。
 
 ![浅色起始页预览](docs/screenshots/light.png)
 
 [深色预览](docs/screenshots/dark.png) · [设置面板](docs/screenshots/settings.png) · [测试记录](docs/VERIFICATION.md)
+
+## v2.0.0 更新
+
+- 脱胎换骨的「AUREOLE · 圣光书阁」全新设计：向量玫瑰窗星轮光晕背景、居中圣殿徽标、双层细丝金线装裱面板与四角星徽。
+- 古典衬线体分组标题配对称金线饰边，字母磁贴呈手稿首字鎏金徽章质感，真实网站图标搭配珍珠玉石底衬。
+- 浅色晨曦（Alabaster & Champagne Gold）与深色星夜（Nocturne Sapphire & Starlight Gold）双主题即时切换，零外部字体或网络请求。
 
 ## v1.3.0 更新
 

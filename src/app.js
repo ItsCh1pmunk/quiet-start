@@ -183,7 +183,11 @@ function render() {
       if (index > 0) h2.append(element('span', 'path-sep', ' / '));
       h2.append(element('span', index === parts.length - 1 ? 'path-leaf' : 'path-parent', part));
     });
-    heading.append(h2, element('span', 'section-count', String(section.items.length)));
+    const leftOrnament = element('span', 'heading-ornament');
+    leftOrnament.setAttribute('aria-hidden', 'true');
+    const rightOrnament = element('span', 'heading-ornament');
+    rightOrnament.setAttribute('aria-hidden', 'true');
+    heading.append(leftOrnament, h2, element('span', 'section-count', String(section.items.length)), rightOrnament);
     const grid = element('div', 'bookmark-grid');
     grid.append(...section.items.map(createTile));
     container.append(heading, grid); fragment.append(container);
