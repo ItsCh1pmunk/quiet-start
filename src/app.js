@@ -84,9 +84,13 @@ function createTile(item) {
     tile.addEventListener('click', () => { state.navigation = item.id; render(); });
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('viewBox', '0 0 24 24');
-    const path = document.createElementNS(svg.namespaceURI, 'path');
-    path.setAttribute('d', 'M2 7a3 3 0 0 1 3-3h5l2 2h7a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3Z');
-    svg.append(path); icon.append(svg);
+    const back = document.createElementNS(svg.namespaceURI, 'path');
+    back.setAttribute('class', 'folder-back');
+    back.setAttribute('d', 'M2.5 6.8A2.8 2.8 0 0 1 5.3 4h3.9c.7 0 1.4.3 1.9.8l1.2 1.2h6.4a2.8 2.8 0 0 1 2.8 2.8v2.2H2.5Z');
+    const front = document.createElementNS(svg.namespaceURI, 'path');
+    front.setAttribute('class', 'folder-front');
+    front.setAttribute('d', 'M2.5 8.5A1.5 1.5 0 0 1 4 7h16a1.5 1.5 0 0 1 1.5 1.5v8.7A2.8 2.8 0 0 1 18.7 20H5.3a2.8 2.8 0 0 1-2.8-2.8Z');
+    svg.append(back, front); icon.append(svg);
   } else {
     tile.href = safeURL(item.url);
     tile.rel = 'noreferrer noopener';
@@ -162,6 +166,7 @@ function render() {
   document.documentElement.style.setProperty('--icon-size', `${settings.iconSize}px`);
   document.documentElement.style.setProperty('--cell-min', `${settings.iconSize + 28}px`);
   document.documentElement.style.setProperty('--cell-width', `${settings.iconSize + 48}px`);
+  document.documentElement.style.setProperty('--preferred-columns', settings.columns);
   updateColumns();
   renderBreadcrumbs(folders, current, source);
   const sections = sectionsFor(current, settings.grouped, state.query);
@@ -172,7 +177,13 @@ function render() {
   for (const section of sections) {
     const container = element('section', 'bookmark-section');
     const heading = element('div', 'section-heading');
-    heading.append(element('h2', '', section.title === '收藏夹' ? '常用网站' : section.title), element('span', 'section-count', String(section.items.length)));
+    const h2 = element('h2');
+    const parts = (section.title === '收藏夹' ? '常用网站' : section.title).split(' / ');
+    parts.forEach((part, index) => {
+      if (index > 0) h2.append(element('span', 'path-sep', ' / '));
+      h2.append(element('span', index === parts.length - 1 ? 'path-leaf' : 'path-parent', part));
+    });
+    heading.append(h2, element('span', 'section-count', String(section.items.length)));
     const grid = element('div', 'bookmark-grid');
     grid.append(...section.items.map(createTile));
     container.append(heading, grid); fragment.append(container);

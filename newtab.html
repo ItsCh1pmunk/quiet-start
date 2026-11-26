@@ -11,37 +11,38 @@
   <script type="module" src="src/app.js"></script>
 </head>
 <body>
-  <div class="ambient-shape" aria-hidden="true"></div>
   <div class="page-shell">
     <header class="topbar">
-      <div class="wordmark"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Quiet Start</span></div>
-
-        <label class="folder-chip">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg>
-          <select id="choose-folder" class="quick-folder-select" aria-label="选择收藏夹" disabled><option>正在读取…</option></select>
-          <span class="folder-chevron" aria-hidden="true">⌄</span>
-        </label>
-    </header>
-    <main id="main" aria-busy="true">
-      <div class="page-heading">
-        <div class="hero-copy"><span class="hero-kicker">给日常，留一点从容</span><h1>常去的地方<span class="title-dot">.</span></h1><p id="summary">正在读取 Chrome 书签…</p></div>
-
+      <div class="wordmark">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>Quiet Start</span>
       </div>
       <label class="search-box">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 4.3 4.3"/></svg>
-        <input id="search" type="search" placeholder="搜索喜欢的网站" aria-label="搜索收藏夹" autocomplete="off" spellcheck="false">
-        <kbd aria-hidden="true">⌘ K</kbd>
+        <input id="search" type="search" placeholder="搜索收藏夹" aria-label="搜索收藏夹" autocomplete="off" spellcheck="false">
+        <kbd aria-hidden="true">⌘K</kbd>
       </label>
+      <label class="folder-chip">
+        <svg class="folder-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4.6l2 2H19a2 2 0 0 1 2 2v8.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg>
+        <select id="choose-folder" class="quick-folder-select" aria-label="选择收藏夹" disabled><option>正在读取…</option></select>
+        <svg class="folder-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 6.5 8 10l3.5-3.5"/></svg>
+      </label>
+    </header>
+    <main id="main" aria-busy="true">
+      <h1 class="visually-hidden">收藏夹</h1>
+      <p id="summary" class="visually-hidden" role="status">正在读取 Chrome 书签…</p>
       <div class="collection-surface">
-      <nav id="breadcrumbs" class="breadcrumbs" aria-label="文件夹路径" hidden></nav>
-      <div id="notice" class="notice" role="status" hidden></div>
-      <div id="content"></div>
-      <div id="empty" class="empty-state" hidden>
-        <div class="empty-symbol" aria-hidden="true">☆</div>
-        <h2 id="empty-title">这里还没有书签</h2>
-        <p id="empty-description">按 ⌘ D 收藏一个网站，或选择其他书签文件夹。</p>
-        <button id="empty-folder" class="text-button" type="button">选择文件夹</button>
-      </div>
+        <nav id="breadcrumbs" class="breadcrumbs" aria-label="文件夹路径" hidden></nav>
+        <div id="notice" class="notice" role="status" hidden></div>
+        <div id="content"></div>
+        <div id="empty" class="empty-state" hidden>
+          <div class="empty-symbol" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="m12 3.5 2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8Z"/></svg>
+          </div>
+          <h2 id="empty-title">这里还没有书签</h2>
+          <p id="empty-description">按 ⌘ D 收藏一个网站，或选择其他书签文件夹。</p>
+          <button id="empty-folder" class="text-button" type="button">选择文件夹</button>
+        </div>
       </div>
       <noscript>请在 Chrome 中启用 JavaScript 后重新打开新标签页。</noscript>
     </main>
@@ -51,10 +52,21 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="2.5"/><circle cx="15" cy="17" r="2.5"/></svg><span>自定</span>
   </button>
   <dialog id="settings-dialog" aria-labelledby="settings-title">
-    <div class="dialog-heading"><div><span class="eyebrow">让这里更像你</span><h2 id="settings-title">自定起始页</h2></div><button id="close-settings" class="icon-button" aria-label="关闭设置" type="button">×</button></div>
+    <div class="dialog-heading">
+      <div>
+        <span class="eyebrow">QUIET START</span>
+        <h2 id="settings-title">自定起始页</h2>
+      </div>
+      <button id="close-settings" class="icon-button" aria-label="关闭设置" type="button">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 4.5 11.5 11.5M11.5 4.5 4.5 11.5"/></svg>
+      </button>
+    </div>
     <div class="settings-section">
       <label class="field-label" for="folder-select">书签文件夹</label>
-      <select id="folder-select" aria-describedby="folder-help"></select>
+      <div class="select-wrap">
+        <select id="folder-select" aria-describedby="folder-help"></select>
+        <svg class="select-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 6.5 8 10l3.5-3.5"/></svg>
+      </div>
       <p class="field-help" id="folder-help">自动读取 Chrome 书签，修改后即时更新。</p>
     </div>
     <div class="settings-section layout-settings">

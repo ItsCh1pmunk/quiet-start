@@ -183,10 +183,10 @@ async function until(check, message) {
     await page.locator('#close-settings').click();
     await delay(300);
     await page.emulateMedia({ colorScheme: 'light' });
-    assert.equal(await page.evaluate(() => getComputedStyle(document.body).backgroundColor), 'rgb(244, 245, 247)');
+    assert.equal(await page.evaluate(() => getComputedStyle(document.body).backgroundColor), 'rgb(242, 243, 245)');
     await page.screenshot({ path: path.join(screenshotDir, 'light.png'), fullPage: true });
     await page.emulateMedia({ colorScheme: 'dark' });
-    assert.equal(await page.evaluate(() => getComputedStyle(document.body).backgroundColor), 'rgb(23, 26, 33)');
+    assert.equal(await page.evaluate(() => getComputedStyle(document.body).backgroundColor), 'rgb(19, 22, 28)');
     await page.screenshot({ path: path.join(screenshotDir, 'dark.png'), fullPage: true });
     await page.locator('#settings-button').click();
     await page.screenshot({ path: path.join(screenshotDir, 'settings.png'), fullPage: true });

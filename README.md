@@ -1,10 +1,17 @@
 # Quiet Start · 收藏夹起始页
 
-一个完全本地运行的 Chrome Manifest V3 扩展，将新标签页替换成雾白与石墨配色、轻玻璃图标风格的收藏夹网格。使用原生 HTML、CSS、JavaScript，安装不需要 Node、构建或联网。
+一个完全本地运行的 Chrome Manifest V3 扩展，将新标签页替换成 Quiet Studio 陶瓷质感与柔和光影风格的收藏夹网格。使用原生 HTML、CSS、JavaScript，安装不需要 Node、构建或联网。
 
 ![浅色起始页预览](docs/screenshots/light.png)
 
 [深色预览](docs/screenshots/dark.png) · [设置面板](docs/screenshots/settings.png) · [测试记录](docs/VERIFICATION.md)
+
+## v1.3.0 更新
+
+- Quiet Studio 视觉升级：日光暖灰与深邃石墨双主题，修复系统主题瞬时切换时的控件过渡残影。
+- 紧凑单行顶栏：品牌标识、居中搜索框与书签文件夹选择器统一至 38px 节奏，减少首屏留白干扰。
+- 精工陶瓷键帽图标与双色文件夹磁贴，优化深层分组标题层级与自定面板滑块细节。
+- 保持零额外权限、零外部资源与零运行时依赖。
 
 ## v1.2.0 更新
 
